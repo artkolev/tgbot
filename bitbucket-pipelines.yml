@@ -1,0 +1,28 @@
+# Bitbucket Pipelines Configuration file
+# https://confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html
+# options:
+# size: 2x
+# max-time: 60
+pipelines:
+  #  default:
+  #    - step:
+  #        script:
+  #          - echo "This script runs on all branches that don't have any specific pipeline assigned in 'branches'."
+  branches:
+    develop:
+      - step:
+          name: rsync
+          script:
+            - export RSYNC_PASSWORD="$DEPLOY_PASS"
+            - composer install --no-interaction --prefer-dist --no-dev --no-suggest
+            - rsync -uvrht --delete-after --stats --exclude-from=deployment-exclude-list.txt $BITBUCKET_CLONE_DIR/ $DEPLOY_USER@$DEPLOY_HOST::$DEPLOY_PATH_DEV
+    master:
+      - step:
+          name: rsync
+          image: exozet/php-fpm:7.2
+          caches:
+            - composer
+          script:
+            - export RSYNC_PASSWORD="$DEPLOY_PASS"
+            - composer install --no-interaction --prefer-dist --no-dev --no-suggest
+            - rsync -uvrht --delete-after --stats --exclude-from=deployment-exclude-list.txt $BITBUCKET_CLONE_DIR/ $DEPLOY_USER@$DEPLOY_HOST::$DEPLOY_PATH_PROD
