@@ -48,7 +48,7 @@ class CancelCommand extends UserBaseClass
      * @return ServerResponse
      * @throws TelegramException
      */
-    public function execute()
+    public function execute(): ServerResponse
     {
         $text = 'Нет активного разговора!';
 
@@ -73,7 +73,7 @@ class CancelCommand extends UserBaseClass
      *
      * @return ServerResponse
      */
-    private function removeKeyboard($text)
+    private function removeKeyboard($text): ServerResponse
     {
         return $this->sendAnswerRequest([
             'reply_markup' => Keyboard::remove(['selective' => true]),
@@ -87,7 +87,7 @@ class CancelCommand extends UserBaseClass
      *
      * @return ServerResponse
      */
-    public function executeNoDb()
+    public function executeNoDb(): ServerResponse
     {
         return $this->removeKeyboard('Нечего отменять.');
     }
