@@ -16,7 +16,7 @@ class CacheFactory
     public static function build(): SimpleCacheBridge
     {
         $client = new Memcached();
-        $client->addServer(getenv('MEMCACHE_SERVER') ?? 'localhost', getenv('MEMCACHE_PORT') ?? 11211);
+        $client->addServer(getenv('MEMCACHE_SERVER') ?: 'localhost', getenv('MEMCACHE_PORT') ?: 11211);
         $pool = new MemcachedCachePool($client);
         $simpleCache = new SimpleCacheBridge($pool);
 
