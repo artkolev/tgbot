@@ -1,6 +1,8 @@
 <?php
 
-namespace Longman\TelegramBot\Commands\UserCommands;
+declare(strict_types=1);
+
+namespace TGBot\Commands\UserCommands;
 
 use Longman\TelegramBot\Commands\Command;
 use Longman\TelegramBot\Entities\Message;

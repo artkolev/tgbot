@@ -1,17 +1,9 @@
 <?php
 
-/**
- * This file is part of the TelegramBot package.
- *
- * (c) Avtandil Kikabidze aka LONGMAN <akalongman@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+declare(strict_types=1);
 
-namespace Longman\TelegramBot\Commands\UserCommands;
+namespace TGBot\Commands\AdminCommands;
 
-use Longman\TelegramBot\Commands\AdminCommand;
 use Longman\TelegramBot\Conversation;
 use Longman\TelegramBot\Entities\Keyboard;
 use Longman\TelegramBot\Entities\KeyboardButton;
@@ -19,13 +11,7 @@ use Longman\TelegramBot\Entities\PhotoSize;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 use Longman\TelegramBot\Request;
-use TGBot\Traits\CommandsTrait;
 
-/**
- * User "/survey" command
- *
- * Command that demonstrated the Conversation funtionality in form of a simple survey.
- */
 class SurveyCommand extends AdminBaseClass
 {
 

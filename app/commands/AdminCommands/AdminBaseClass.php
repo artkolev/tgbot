@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
-namespace Longman\TelegramBot\Commands\UserCommands;
-
+namespace TGBot\Commands\AdminCommands;
 
 use Doctrine\DBAL\Driver\Connection;
 use Doctrine\ORM\EntityManager;
@@ -42,7 +42,7 @@ abstract class AdminBaseClass extends UserCommand
         $this->di = ServiceProviderFactory::build();
         $this->logger = $this->di->get('logger');
         $this->entityManager = $this->di->get('entityManager');
-        $this->pdo = $this->entityManager->getConnection()->getWrappedConnection();
+        $this->pdo = $this->entityManager->getConnection()->getNativeConnection();
 
         parent::__construct($telegram, $update);
     }

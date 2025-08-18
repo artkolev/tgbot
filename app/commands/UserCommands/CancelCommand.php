@@ -1,12 +1,13 @@
 <?php
 
-namespace Longman\TelegramBot\Commands\UserCommands;
+declare(strict_types=1);
+
+namespace TGBot\Commands\UserCommands;
 
 use Longman\TelegramBot\Conversation;
 use Longman\TelegramBot\Entities\Keyboard;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
-use TGBot\Traits\CommandsTrait;
 
 class CancelCommand extends UserBaseClass
 {

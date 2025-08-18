@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TGBot\Base;
 
 use Doctrine\ORM\EntityManager;
@@ -9,7 +11,6 @@ use Dotenv\Exception\ValidationException;
 use Exception;
 use FastRoute\Dispatcher;
 use Longman\TelegramBot\Exception\TelegramException;
-use Longman\TelegramBot\Exception\TelegramLogException;
 use Longman\TelegramBot\Telegram;
 use Longman\TelegramBot\TelegramLog;
 use RuntimeException;
@@ -67,7 +68,7 @@ class Init
             /** @var Telegram $telegram */
             $telegram = $di->get('telegram');
             $telegram->addCommandsPath($di->get('commandsPath'));
-            //TelegramLog::debug('Found commands', $telegram->getCommandsList());
+            TelegramLog::debug('Found commands', $telegram->getCommandsList());
             /** @noinspection PhpParamsInspection */
             $telegram->enableExternalMySql($entityManager->getConnection()->getNativeConnection());
         } catch (TelegramException $e) {

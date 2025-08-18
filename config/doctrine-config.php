@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 // Paths to Entities that we want Doctrine to see
 $paths = array(
     "app/Models"

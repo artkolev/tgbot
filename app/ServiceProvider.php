@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TGBot;
 
 use League\Container\Container;
@@ -53,7 +55,7 @@ class ServiceProvider extends AbstractServiceProvider implements BootableService
             ->share('telegram', TelegramFactory::build());
 
         $this->getContainer()
-            ->add('commandsPath', realpath(__DIR__ . '/../commands/'));
+            ->add('commandsPath', realpath(__DIR__ . '/Commands/'));
 
         $this->getContainer()
             ->share(SecretSantaEventMembersRepository::class);

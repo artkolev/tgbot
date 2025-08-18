@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TGBot\Traits;
 
 use Longman\TelegramBot\Commands\Command;

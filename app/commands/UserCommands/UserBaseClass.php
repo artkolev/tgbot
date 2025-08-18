@@ -1,6 +1,8 @@
 <?php
 
-namespace Longman\TelegramBot\Commands\UserCommands;
+declare(strict_types=1);
+
+namespace TGBot\Commands\UserCommands;
 
 use Doctrine\DBAL\Driver\Connection;
 use Doctrine\ORM\EntityManager;

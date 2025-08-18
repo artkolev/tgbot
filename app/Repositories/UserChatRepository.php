@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TGBot\Repositories;
 
 class UserChatRepository extends AbstractRepository
