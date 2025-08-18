@@ -21,7 +21,7 @@ use TGBot\Factories\ServiceProviderFactory;
 class Init
 {
 
-    public static function start()
+    public static function start(): bool
     {
 
         ini_set('memory_limit', '2048M');
@@ -69,7 +69,7 @@ class Init
             $telegram->addCommandsPath($di->get('commandsPath'));
             //TelegramLog::debug('Found commands', $telegram->getCommandsList());
             /** @noinspection PhpParamsInspection */
-            $telegram->enableExternalMySql($entityManager->getConnection()->getWrappedConnection());
+            $telegram->enableExternalMySql($entityManager->getConnection()->getNativeConnection());
         } catch (TelegramException $e) {
             TelegramLog::error($e->getMessage());
 
@@ -77,8 +77,6 @@ class Init
                 throw new RuntimeException($e);
             }
             return false;
-        } catch (TelegramLogException $e) {
-            echo $e;
         }
 
         $dispatcher = Route::init();
