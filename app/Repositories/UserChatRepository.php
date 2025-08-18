@@ -26,9 +26,9 @@ WHERE `user_id` = :userId
     AND `chat_id` = :chatId
         ');
 
-        $sth->execute(['userId' => $userId, 'chatId' => $chatId]);
+        $result = $sth->execute(['userId' => $userId, 'chatId' => $chatId]);
 
-        if ($res = $sth->fetch()) {
+        if ($res = $result->fetchOne()) {
             return (int)$res['user_isset'] === 1;
         }
 
