@@ -38,7 +38,7 @@
       "TGBot\\": "app/"
     },
     "classmap": [
-      "commands/"
+      "app/Commands/"
     ]
   }
 }

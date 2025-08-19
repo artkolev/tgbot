@@ -82,7 +82,6 @@ trait CommandsTrait
             return Request::emptyResponse();
         }
 
-        /** @noinspection PhpUndefinedClassInspection */
         return parent::preExecute();
     }
 

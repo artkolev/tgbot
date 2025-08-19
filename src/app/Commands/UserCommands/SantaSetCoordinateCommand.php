@@ -231,8 +231,6 @@ class SantaSetCoordinateCommand extends UserBaseClass
             );
 
             switch ($state) {
-                /** @noinspection PhpMissingBreakStatementInspection */
-                // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
                 case 0:
                     if (
                         $text === ''
@@ -268,8 +266,6 @@ class SantaSetCoordinateCommand extends UserBaseClass
                     $text = '';
                     // no break
 
-                /** @noinspection PhpMissingBreakStatementInspection */
-                // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
                 case 1:
                     if ($text === '' && !empty($notes['coordinate'])) {
                         $notes['state'] = 1;

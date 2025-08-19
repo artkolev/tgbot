@@ -94,7 +94,6 @@ abstract class UserBaseClass extends UserCommand
                     $this->logger->info('Найден объект команды, установка минимального отступа');
                     $minOffset = $entity->getOffset();
                     continue 2;
-                    break;
 
                 case 'mention':
                     $this->logger->info('Найден объект призыва по имени, создание ссылки через имя пользователя');
@@ -109,7 +108,6 @@ abstract class UserBaseClass extends UserCommand
                     }
                     $targetLnk = sprintf('[%s](https://t.me/%s)', $targetUser, $matches[1]);
                     break 2;
-                    break;
 
                 case 'text_mention':
                     $this->logger->info('Найден объект призыва по id, создание ссылки через tg//');

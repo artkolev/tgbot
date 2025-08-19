@@ -1,0 +1,38 @@
+### JetBrains template
+*.iml
+.idea/
+*.ipr
+*.iws
+
+
+### Composer template
+composer.phar
+/vendor
+/build
+
+
+### Vagrant template
+.vagrant/
+
+
+### Custom
+/.env
+
+
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+/generated-reversed-database
+/public/prices
+/public/attachments
+/logs
+/prices
+!/prices/test.xlsx
+
+.php_cs.cache
+/cache
+/docker-compose.override.yml
