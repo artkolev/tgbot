@@ -69,6 +69,8 @@ class WebHookController extends BaseController
             $this->telegram->handle();
         } catch (TelegramException $e) {
             $this->logger->error(sprintf('webhook error %s', $e->getMessage()));
+        } catch (\Throwable $t) {
+            $this->logger->error(sprintf('handle error %s', $t->getMessage()));
         }
         $this->logger->debug(sprintf('command success'));
         return new JsonResponse(['result' => 'OK']);
