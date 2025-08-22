@@ -44,15 +44,9 @@ class Init
                 'BOT_USERNAME',
                 'BOT_HOOK_URL'
             ]);
-        } catch (InvalidPathException $e) {
+        } catch (InvalidPathException|ValidationException $e) {
             error_log($e->getMessage());
-            $response = JsonResponse::create('application error', JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
-            $response->send();
-
-            return false;
-        } catch (ValidationException $e) {
-            error_log($e->getMessage());
-            $response = JsonResponse::create('application error', JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+            $response = JsonResponse::create('application error', Response::HTTP_INTERNAL_SERVER_ERROR);
             $response->send();
 
             return false;
@@ -104,7 +98,7 @@ class Init
                     $di->get('logger')->error($ex->getMessage());
                     $response = JsonResponse::create(
                         ['error' => 'application error'],
-                        JsonResponse::HTTP_INTERNAL_SERVER_ERROR
+                        Response::HTTP_INTERNAL_SERVER_ERROR
                     );
                 }
 
