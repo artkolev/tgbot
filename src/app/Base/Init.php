@@ -26,7 +26,7 @@ class Init
     {
 
         ini_set('memory_limit', '2048M');
-        define('BASE_PATH', dirname(__DIR__, 3));
+        define('BASE_PATH', dirname(__DIR__, 2));
         error_reporting(-1);
         error_reporting(E_ALL & ~E_USER_DEPRECATED & ~E_DEPRECATED);
         ini_set('display_errors', 1);
