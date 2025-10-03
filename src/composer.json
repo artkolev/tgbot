@@ -31,7 +31,8 @@
     "doctrine/annotations": "^2.0"
   },
   "require-dev": {
-    "symfony/var-dumper": "^5.0.0"
+    "symfony/var-dumper": "^5.0.0",
+    "roave/security-advisories": "dev-latest"
   },
   "autoload": {
     "psr-4": {
